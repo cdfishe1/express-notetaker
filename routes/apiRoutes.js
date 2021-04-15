@@ -4,6 +4,10 @@
 
 const noteData = require('../db/db');
 const generateUniqueId = require('generate-unique-id');
+const id = generateUniqueId({
+  length: 10,
+  useLetters: false
+});
 
 
 // ROUTING
