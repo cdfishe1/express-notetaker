@@ -2,11 +2,6 @@
 
 const noteData = require('../db/db');
 const fs = require('fs');
-// const generateUniqueId = require('generate-unique-id');
-// const id = generateUniqueId({
-//   length: 10,
-//   useLetters: false
-// });
 
 
 // ROUTING
@@ -14,7 +9,22 @@ const fs = require('fs');
 module.exports = (app) => {
  
 
-  app.get('/api/notes', (req, res) => res.json(noteData));
+  // app.get('/api/notes', (req, res) => res.json(noteData));
+
+  app.get('/api/notes', (req, res) => {
+    let allNotes = [];
+    fs.readFile('./db/db.json', (err, data) => {
+      if(err) {
+        throw(err)
+      } else {
+        allNotes = JSON.parse(data);
+        res.send(allNotes);
+      }
+    })
+
+  })
+
+
 
   // app.get('/api/notes' , (req, res) => {
   //   fs.readFile('./db/db.json', (err, data) => {
