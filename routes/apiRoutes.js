@@ -1,8 +1,8 @@
 //Establishes the api routes for getting and posting data to the db.json file
 
-const noteData = require('../db/db');
+// const noteData = require('../db/db');
 const fs = require('fs');
-const { json } = require('express');
+// const { json } = require('express');
 
 
 // ROUTING
