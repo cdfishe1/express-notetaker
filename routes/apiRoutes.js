@@ -2,6 +2,7 @@
 
 const noteData = require('../db/db');
 const fs = require('fs');
+const { json } = require('express');
 
 
 // ROUTING
@@ -24,8 +25,6 @@ module.exports = (app) => {
 
   })
 
-
-
   // app.get('/api/notes' , (req, res) => {
   //   fs.readFile('./db/db.json', (err, data) => {
   //     // console.log(data);
@@ -46,9 +45,31 @@ module.exports = (app) => {
 
   app.post('/api/notes', (req, res) => {
     console.log(req.body);
+    let currentNotes = [];
+    let newNote = req.body;
+    fs.readFile('./db/db.json', (err, data) => {
+      if(err) {
+        throw(err)
+      } else {
+        currentNotes = JSON.parse(data);
+        currentNotes.push(newNote);
+        
+        let newFile = JSON.stringify(currentNotes);
+
+        fs.writeFile('./db/db.json', newFile, err => {
+          if(err) {
+            throw(err)
+          } else {
+            console.log(newFile);
+          }
+        })
+      }
+    })
     
-      noteData.push(req.body);
-      res.json(true);
+
+    
+      // noteData.push(req.body);
+      // res.json(true);
     
   });
 
