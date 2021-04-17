@@ -25,24 +25,6 @@ module.exports = (app) => {
 
   })
 
-  // app.get('/api/notes' , (req, res) => {
-  //   fs.readFile('./db/db.json', (err, data) => {
-  //     // console.log(data);
-  //     let allNotes = [];
-  //     if(data) {
-  //       allNotes = JSON.parse(data);
-  //       res.send(allNotes);
-  //     } else {
-  //       res.send(allNotes);
-  //     }
-  //     if(err) {
-  //       throw(err)
-  //     }
-  //   })
-  // })
-
-  
-
   app.post('/api/notes', (req, res) => {
     console.log(req.body);
     let currentNotes = [];
@@ -65,12 +47,8 @@ module.exports = (app) => {
         })
       }
     })
-    
 
-    
-      // noteData.push(req.body);
-      // res.json(true);
-    
+  res.json(true); 
   });
 
   // app.delete('/api/notes/:id', (req, res) => {
