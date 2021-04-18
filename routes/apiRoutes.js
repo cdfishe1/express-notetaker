@@ -9,7 +9,7 @@ module.exports = (app) => {
   app.get('/api/notes', (req, res) => {
     let allNotes = [];
     fs.readFile('./db/db.json', (err, data) => {
-      if(err) throw(err)
+      if(err) throw(err);
       
         allNotes = JSON.parse(data);
         res.send(allNotes);
@@ -50,13 +50,19 @@ module.exports = (app) => {
 
     fs.readFile('./db/db.json', (err, data) => {
       if(err) throw(err)
-      
-        allNotes = JSON.parse(data);
+      allNotes = JSON.parse(data);
 
-        let filteredNotes = allNotes.filter(note => note.id != deleteId);
-        console.log(filteredNotes);
+      let filteredNotes = allNotes.filter(note => note.id != deleteId);
+      console.log(filteredNotes);
+
+      let filteredFile = JSON.stringify(filteredNotes);
+      fs.writeFile('./db/db.json', filteredFile, err => {
+        if(err) throw(err);
+        console.log(filteredFile);
+      })
+
         
-        // res.send(allNotes);
+      res.json(true);
         
       })
 
