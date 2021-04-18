@@ -1,11 +1,11 @@
-//Establishes the api routes for getting and posting data to the db.json file
+//Establishes the api routes for getting, posting, and deleting data to the db.json file
 
 const fs = require('fs');
 
 // ROUTING
 
 module.exports = (app) => {
-
+  //Get's the db.json file and sends its contents to the dom
   app.get('/api/notes', (req, res) => {
     let allNotes = [];
     fs.readFile('./db/db.json', (err, data) => {
@@ -16,6 +16,7 @@ module.exports = (app) => {
       })
   });
 
+  //Takes the post request from the client, reads the current db.json file, and writes a new file with the new post
   app.post('/api/notes', (req, res) => {
     console.log(req.body);
     let currentNotes = [];
@@ -38,6 +39,7 @@ module.exports = (app) => {
     res.json(true); 
   });
 
+  //Takes the delete request, reads the db.json file, filters out the deleted note, and re-writes the db.json file
   app.delete('/api/notes/:id', (req, res) => {
     let deleteId = parseInt(req.params.id, 10);
     let allNotes = [];

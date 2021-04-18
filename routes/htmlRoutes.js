@@ -1,4 +1,4 @@
-//Established the paths to fetch the notes and index pages
+//Establishes the paths to fetch the notes and index pages
 
 const path = require('path');
 
