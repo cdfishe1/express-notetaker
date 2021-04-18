@@ -33,7 +33,7 @@ module.exports = (app) => {
           if(err) {
             throw(err)
           } else {
-            console.log(newFile);
+            console.log('Successfully wrote the file with an added note!');
           }
         })
       }
@@ -53,12 +53,11 @@ module.exports = (app) => {
       allNotes = JSON.parse(data);
 
       let filteredNotes = allNotes.filter(note => note.id != deleteId);
-      console.log(filteredNotes);
 
       let filteredFile = JSON.stringify(filteredNotes);
       fs.writeFile('./db/db.json', filteredFile, err => {
         if(err) throw(err);
-        console.log(filteredFile);
+        console.log('Successfully wrote the new filtered file deleting the note!');
       })
 
         
