@@ -16,13 +16,13 @@ Allows the user to input, read, and delete notes.
 
 ## Notetaker
 
-### Screencast on mobile
-![Screencast on mobile](assets/images/demo.gif)
+### Screenshot
+![Screenshot](assets/widescreen-demo.jpg)
 
 
 ## Deployment
 
-Site deployed at [Charles Fisher](https://cdfishe1.github.io/weather-app/)
+Site deployed at [Note Taker](https://limitless-oasis-13246.herokuapp.com/)
 
 ## Scope of Project
 
@@ -31,8 +31,8 @@ Site deployed at [Charles Fisher](https://cdfishe1.github.io/weather-app/)
 
 ## Installation
 
-npm install to download the express dependency in node.
-Deploy files to webserver such as Heroku for live app usage.
+* npm install to download the express dependency in node.
+* Deploy files to webserver such as Heroku for live app usage.
 
 ## Credits
 
