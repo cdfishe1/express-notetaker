@@ -1,16 +1,10 @@
 //Establishes the api routes for getting and posting data to the db.json file
 
-// const noteData = require('../db/db');
 const fs = require('fs');
-// const { json } = require('express');
-
 
 // ROUTING
 
 module.exports = (app) => {
- 
-
-  // app.get('/api/notes', (req, res) => res.json(noteData));
 
   app.get('/api/notes', (req, res) => {
     let allNotes = [];
@@ -47,20 +41,26 @@ module.exports = (app) => {
         })
       }
     })
+    res.json(true)
+  ; 
 
-  res.json(true); 
-  });
+  app.delete('/api/notes:id', (req, res) => {  
+    console.log(req.param.id);
+    // let allNotes = [];
 
-  // app.delete('/api/notes/:id', (req, res) => {
-  //   console.log(req.body);
-  // })
+    // fs.readFile('./db/db.json', (err, data) => {
+    //   if(err) {
+    //     throw(err)
+    //   } else {
+    //     allNotes = JSON.parse(data);
+    //     deletedData.splice(key, 1);
+    //     res.send(deletedData);
+    //   }
+    // })
+  
+  })
+});
 
+  
 
-  // app.post('/api/clear', (req, res) => {
-  //   // Empty out the arrays of data
-  //   tableData.length = 0;
-  //   waitListData.length = 0;
-
-  //   res.json({ ok: true });
-  // });
 };
