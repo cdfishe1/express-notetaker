@@ -21,27 +21,21 @@ module.exports = (app) => {
     let currentNotes = [];
     let newNote = req.body;
     fs.readFile('./db/db.json', (err, data) => {
-      if(err) {
-        throw(err)
-      } else {
+      if(err) throw(err)
+
         currentNotes = JSON.parse(data);
         currentNotes.push(newNote);
         
         let newFile = JSON.stringify(currentNotes);
 
         fs.writeFile('./db/db.json', newFile, err => {
-          if(err) {
-            throw(err)
-          } else {
+          if(err) throw(err)
             console.log('Successfully wrote the file with an added note!');
-          }
+          
         })
-      }
+      
     })
-    res.json(true)
-  ; 
-
-  res.json(true); 
+    res.json(true); 
   });
 
   app.delete('/api/notes/:id', (req, res) => {
@@ -60,13 +54,7 @@ module.exports = (app) => {
         console.log('Successfully wrote the new filtered file deleting the note!');
       })
 
-        
       res.json(true);
-        
       })
-
-    
-
   })
-
 };
