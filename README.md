@@ -17,7 +17,7 @@ Allows the user to input, read, and delete notes.
 ## Notetaker
 
 ### Screenshot
-![Screenshot](assets/widescreen-demo.jpg)
+![Screenshot](assets/images/widescreen-demo.jpg)
 
 
 ## Deployment
