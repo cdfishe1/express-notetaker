@@ -1,6 +1,9 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "Allows the user to input, read, and delete notes.",
   "main": "server.js",
   "scripts": {
