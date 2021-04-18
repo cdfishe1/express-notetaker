@@ -44,8 +44,24 @@ module.exports = (app) => {
   res.json(true); 
   });
 
-  // app.delete('/api/notes/:id', (req, res) => {
-  //   console.log(req.params.id);
-  // })
+  app.delete('/api/notes/:id', (req, res) => {
+    let deleteId = parseInt(req.params.id, 10);
+    let allNotes = [];
+
+    fs.readFile('./db/db.json', (err, data) => {
+      if(err) throw(err)
+      
+        allNotes = JSON.parse(data);
+
+        let filteredNotes = allNotes.filter(note => note.id != deleteId);
+        console.log(filteredNotes);
+        
+        // res.send(allNotes);
+        
+      })
+
+    
+
+  })
 
 };
